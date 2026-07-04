@@ -1,0 +1,3 @@
+interface:
+  display_name: "Video Summaries"
+  short_description: "AI summaries of YouTube, TikTok, Instagram, Facebook, and direct-URL videos."

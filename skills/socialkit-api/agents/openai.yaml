@@ -1,0 +1,3 @@
+interface:
+  display_name: "SocialKit API"
+  short_description: "Route SocialKit REST, curl, and MCP work across social video data endpoints."

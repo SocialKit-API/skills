@@ -1,0 +1,43 @@
+{
+  "$schema": "https://skills.sh/schemas/skills.sh.schema.json",
+  "notGrouped": "bottom",
+  "groupings": [
+    {
+      "title": "Transcripts and Summaries",
+      "description": "Extract transcripts and AI summaries from videos across every supported platform.",
+      "skills": [
+        "video-transcripts",
+        "video-summaries"
+      ]
+    },
+    {
+      "title": "Research and Analytics",
+      "description": "Pull channel and profile data, per-video engagement, and comments.",
+      "skills": [
+        "channel-research",
+        "engagement-analysis"
+      ]
+    },
+    {
+      "title": "Discovery",
+      "description": "Search and hashtag discovery across YouTube, TikTok, and Instagram.",
+      "skills": [
+        "content-discovery"
+      ]
+    },
+    {
+      "title": "Media",
+      "description": "Download videos to hosted files.",
+      "skills": [
+        "video-download"
+      ]
+    },
+    {
+      "title": "Developer Workflows",
+      "description": "SocialKit API routing, auth, REST examples, MCP tool mapping, and the full endpoint index.",
+      "skills": [
+        "socialkit-api"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,79 @@
+{
+  "checkedAt": "2026-09-21T07:41:39.629Z",
+  "artifactSha256": "1b756821befdb036a205ed25af3eadf2dcb0d26554c3d07c92e2997d70e9f589",
+  "n8nVersion": "2.39.8",
+  "databaseVersion": "PostgreSQL 18.3 (PGlite 0.5.8) on wasm32-unknown-emscripten, compiled by emcc (Emscripten gcc/clang-like replacement + linker emulating GNU ld) 3.1.74 (1092ec30a3fb1d46b1782ff1b4db5094d3d06ae5), 32-bit",
+  "scope": "Fresh n8n import and real node execution. SocialKit and Slack responses simulated locally; no external Slack delivery. Each execution starts a fresh n8n process; database state persists.",
+  "results": [
+    {
+      "case": "first-collection",
+      "passed": true,
+      "apiRequests": 2,
+      "simulatedSlackRequests": 1,
+      "expectedExecutionStatus": "success"
+    },
+    {
+      "case": "repeat-after-process-restart",
+      "passed": true,
+      "apiRequests": 2,
+      "simulatedSlackRequests": 0,
+      "expectedExecutionStatus": "success"
+    },
+    {
+      "case": "empty-feeds",
+      "passed": true,
+      "apiRequests": 2,
+      "simulatedSlackRequests": 0,
+      "expectedExecutionStatus": "success"
+    },
+    {
+      "case": "bad-auth",
+      "passed": true,
+      "apiRequests": 2,
+      "simulatedSlackRequests": 0,
+      "expectedExecutionStatus": "error"
+    },
+    {
+      "case": "invalid-profile-before-requests",
+      "passed": true,
+      "apiRequests": 0,
+      "simulatedSlackRequests": 0,
+      "expectedExecutionStatus": "error"
+    },
+    {
+      "case": "unavailable-profile-partial",
+      "passed": true,
+      "apiRequests": 2,
+      "simulatedSlackRequests": 1,
+      "expectedExecutionStatus": "success"
+    },
+    {
+      "case": "slack-rate-limit-retains-outbox",
+      "passed": true,
+      "apiRequests": 2,
+      "simulatedSlackRequests": 1,
+      "expectedExecutionStatus": "error"
+    },
+    {
+      "case": "unexpired-lease-excludes-second-run",
+      "passed": true,
+      "apiRequests": 0,
+      "simulatedSlackRequests": 0,
+      "expectedExecutionStatus": "success"
+    },
+    {
+      "case": "pending-retry-without-api-spend",
+      "passed": true,
+      "apiRequests": 0,
+      "simulatedSlackRequests": 1,
+      "expectedExecutionStatus": "success"
+    },
+    {
+      "case": "confirmed-retry-repeat-quiet",
+      "passed": true,
+      "apiRequests": 2,
+      "simulatedSlackRequests": 0,
+      "expectedExecutionStatus": "success"
+    }
+  ]
+}

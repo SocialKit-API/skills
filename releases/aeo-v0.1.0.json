@@ -23,7 +23,7 @@
       "version": "0.1.0",
       "path": "workflows/competitor-monitor",
       "entrypoint": "workflows/competitor-monitor/socialkit-competitor-monitor.v0.1.0.json",
-      "sha256": "1b756821befdb036a205ed25af3eadf2dcb0d26554c3d07c92e2997d70e9f589",
+      "sha256": "d40a0ea11244593a665e690a3eae31b8971a97893ce56d953c553a462a4d4324",
       "readiness": "Fresh n8n import and execution verified using persistent local PostgreSQL engine and simulated external APIs. No actual external Slack delivery claimed.",
       "evidence": [
         "workflows/competitor-monitor/QA.md",

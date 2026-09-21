@@ -1,6 +1,6 @@
 {
-  "checkedAt": "2026-09-21T07:41:39.629Z",
-  "artifactSha256": "1b756821befdb036a205ed25af3eadf2dcb0d26554c3d07c92e2997d70e9f589",
+  "checkedAt": "2026-09-21T07:48:35.869Z",
+  "artifactSha256": "d40a0ea11244593a665e690a3eae31b8971a97893ce56d953c553a462a4d4324",
   "n8nVersion": "2.39.8",
   "databaseVersion": "PostgreSQL 18.3 (PGlite 0.5.8) on wasm32-unknown-emscripten, compiled by emcc (Emscripten gcc/clang-like replacement + linker emulating GNU ld) 3.1.74 (1092ec30a3fb1d46b1782ff1b4db5094d3d06ae5), 32-bit",
   "scope": "Fresh n8n import and real node execution. SocialKit and Slack responses simulated locally; no external Slack delivery. Each execution starts a fresh n8n process; database state persists.",

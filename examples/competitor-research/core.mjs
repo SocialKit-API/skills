@@ -106,7 +106,7 @@ export function markdown(report) {
   }
   lines.push('', '## Sample top performers', '');
   for (const group of report.rankings) { lines.push(`### ${group.group}`, '', group.basis, ''); for (const i of group.top) lines.push(`- [${i.id}](${i.sourceUrl}): ${i.views} views`); if (!group.top.length) lines.push('No known view counts available.'); lines.push(''); }
-  lines.push('## Request ledger', '', '| Profile | Attempt | HTTP | Outcome | Reserved credits | Charged header | Remaining header |', '|---|---:|---:|---|---:|---:|---:|');
+  lines.push('## Request ledger', '', '| Profile | Attempt | HTTP | Outcome | Reserved credits | Reported used header | Remaining header |', '|---|---:|---:|---|---:|---:|---:|');
   for (const a of report.usage.attempts) lines.push(`| ${esc(a.profileUrl)} | ${a.attempt} | ${a.status ?? 'unknown'} | ${a.outcome} | ${a.reservedCredits} | ${a.creditsUsed ?? 'unknown'} | ${a.creditsRemaining ?? 'unknown'} |`);
   return `${lines.join('\n')}\n`;
 }

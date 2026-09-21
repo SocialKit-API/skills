@@ -52,7 +52,7 @@ known API-reported views within collected sample
 
 ## Request ledger
 
-| Profile | Attempt | HTTP | Outcome | Reserved credits | Charged header | Remaining header |
+| Profile | Attempt | HTTP | Outcome | Reserved credits | Reported used header | Remaining header |
 |---|---:|---:|---|---:|---:|---:|
 | https://www.youtube.com/@NASA | 1 | 200 | usable | 1 | 1 | 20 |
 | https://www.instagram.com/nasa/ | 1 | 200 | usable | 1 | 1 | 20 |

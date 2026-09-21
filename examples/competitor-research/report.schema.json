@@ -1,0 +1,228 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "SocialKit Competitor Research Report 1.0.0",
+  "type": "object",
+  "required": [
+    "schemaVersion",
+    "startedAt",
+    "completedAt",
+    "limits",
+    "profiles",
+    "rankings",
+    "usage"
+  ],
+  "properties": {
+    "schemaVersion": {
+      "const": "1.0.0"
+    },
+    "startedAt": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "completedAt": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "limits": {
+      "type": "object"
+    },
+    "profiles": {
+      "type": "array",
+      "minItems": 1,
+      "maxItems": 3,
+      "items": {
+        "type": "object",
+        "required": [
+          "platform",
+          "url",
+          "status",
+          "items",
+          "warnings",
+          "error"
+        ],
+        "properties": {
+          "platform": {
+            "enum": [
+              "youtube",
+              "instagram"
+            ]
+          },
+          "url": {
+            "type": "string",
+            "format": "uri"
+          },
+          "status": {
+            "enum": [
+              "ok",
+              "partial",
+              "failed"
+            ]
+          },
+          "items": {
+            "type": "array",
+            "maxItems": 50,
+            "items": {
+              "$ref": "#/$defs/item"
+            }
+          },
+          "warnings": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "error": {
+            "type": [
+              "string",
+              "null"
+            ]
+          }
+        }
+      }
+    },
+    "rankings": {
+      "type": "array"
+    },
+    "usage": {
+      "type": "object",
+      "required": [
+        "requests",
+        "reservedCredits",
+        "chargedCredits",
+        "attempts"
+      ],
+      "properties": {
+        "requests": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 6
+        },
+        "reservedCredits": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 18
+        },
+        "chargedCredits": {
+          "type": "null"
+        },
+        "attempts": {
+          "type": "array"
+        },
+        "reportedCreditsUsed": {
+          "type": [
+            "integer",
+            "null"
+          ],
+          "minimum": 0
+        }
+      }
+    }
+  },
+  "$defs": {
+    "item": {
+      "type": "object",
+      "required": [
+        "id",
+        "platform",
+        "contentType",
+        "profileUrl",
+        "sourceUrl",
+        "title",
+        "description",
+        "publishedAt",
+        "fetchedAt",
+        "metrics",
+        "authorUsername"
+      ],
+      "properties": {
+        "id": {
+          "type": "string",
+          "pattern": "^(youtube:[A-Za-z0-9_-]{11}|instagram:[A-Za-z0-9_-]{1,64})$"
+        },
+        "platform": {
+          "enum": [
+            "youtube",
+            "instagram"
+          ]
+        },
+        "contentType": {
+          "enum": [
+            "video",
+            "short",
+            "reel"
+          ]
+        },
+        "profileUrl": {
+          "type": "string",
+          "format": "uri"
+        },
+        "sourceUrl": {
+          "type": "string",
+          "format": "uri"
+        },
+        "title": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "description": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "publishedAt": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "format": "date-time"
+        },
+        "fetchedAt": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "metrics": {
+          "type": "object",
+          "required": [
+            "views",
+            "likes",
+            "comments"
+          ],
+          "properties": {
+            "views": {
+              "type": [
+                "number",
+                "null"
+              ],
+              "minimum": 0
+            },
+            "likes": {
+              "type": [
+                "number",
+                "null"
+              ],
+              "minimum": 0
+            },
+            "comments": {
+              "type": [
+                "number",
+                "null"
+              ],
+              "minimum": 0
+            }
+          },
+          "additionalProperties": false
+        },
+        "authorUsername": {
+          "type": [
+            "string",
+            "null"
+          ]
+        }
+      },
+      "additionalProperties": false
+    }
+  }
+}

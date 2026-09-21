@@ -1,0 +1,11 @@
+{
+  "collectedAt": "2026-09-21T07:40:53.117Z",
+  "environment": "SocialKit deployed development (socialkit-development)",
+  "authentication": "Internal monitor credential; billing deductions waived. Not a customer activation or paid usage test.",
+  "billing": "X-Credits-Used returned 1 per call (2 total reported endpoint credits); X-Credits-Remaining stayed 20. These headers do not prove a billed debit. Normal modeled request cost is 2 credits.",
+  "runtime": "v22.23.2",
+  "releaseVersion": "0.1.0",
+  "bundleSha256": "b982dcd633c25a04f18c6fad5f9390aff0055e0d8a4161b879a74e6f9f557ecf",
+  "inputs": "Two public NASA profile URLs; 3 items each; 2 calls/2 modeled credit reservations; retries disabled; no enrichment or pagination.",
+  "independentCheck": "Verified IDs against their response source URLs and matching feed profile; primary Instagram author differences retained and disclosed."
+}

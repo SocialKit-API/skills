@@ -1,0 +1,230 @@
+{
+  "schemaVersion": "1.0.0",
+  "startedAt": "2026-09-21T07:40:50.691Z",
+  "completedAt": "2026-09-21T07:40:53.117Z",
+  "limits": {
+    "limit": 3,
+    "maxRequests": 2,
+    "maxCredits": 2,
+    "retries": 0,
+    "requestTimeoutMs": 60000,
+    "maxDurationMs": 180000
+  },
+  "profiles": [
+    {
+      "platform": "youtube",
+      "url": "https://www.youtube.com/@NASA",
+      "endpoint": "/youtube/videos",
+      "status": "ok",
+      "items": [
+        {
+          "id": "youtube:IwZVXmQdX1E",
+          "platform": "youtube",
+          "contentType": "video",
+          "profileUrl": "https://www.youtube.com/@NASA",
+          "sourceUrl": "https://www.youtube.com/watch?v=IwZVXmQdX1E",
+          "authorUsername": null,
+          "title": "NASA Moon Base: The First Six Months",
+          "description": "No aim is too high. No journey is too far. No challenge is too tough. \n\nSince NASA announced plans for a Moon Base in March 2026, work has been moving quickly to turn an ambitious vision into reality. From identifying commercial partners to sending humans around the Moon for the first time in decades, we are advancing the missions, technologies, and capabilities that will help build humanity\u2019s first lunar outpost.\n\nWe\u2019re going back to the Moon. This time, to stay. \n\nLearn more about the Moon Base: https://nasa.gov/moonbase \nDownload this video: https://images.nasa.gov/details/NASA_Moon_Base-First_Six_Months \n\nCredit: NASA",
+          "publishedAt": "2026-09-08T18:33:06.000Z",
+          "fetchedAt": "2026-09-21T07:40:51.104Z",
+          "metrics": {
+            "views": 0,
+            "likes": null,
+            "comments": null
+          }
+        },
+        {
+          "id": "youtube:90Kgw_SvK4w",
+          "platform": "youtube",
+          "contentType": "video",
+          "profileUrl": "https://www.youtube.com/@NASA",
+          "sourceUrl": "https://www.youtube.com/watch?v=90Kgw_SvK4w",
+          "authorUsername": null,
+          "title": "What It Takes",
+          "description": "NASA is advancing nuclear power and propulsion in space to accomplish President Trump\u2019s national space objectives.\n\nWith SR-1 Freedom, launching in 2028, we will demonstrate nuclear electric propulsion and deliver SkyFall helicopters to Mars.\n\nIn collaboration with the U.S. Department of Energy, these capabilities are key to future missions to Mars and beyond.\n\nA new chapter of deep space exploration begins.\n\nCredit: NASA",
+          "publishedAt": "2026-09-04T18:01:42.000Z",
+          "fetchedAt": "2026-09-21T07:40:51.104Z",
+          "metrics": {
+            "views": 0,
+            "likes": null,
+            "comments": null
+          }
+        },
+        {
+          "id": "youtube:jHKf1eHp3eQ",
+          "platform": "youtube",
+          "contentType": "video",
+          "profileUrl": "https://www.youtube.com/@NASA",
+          "sourceUrl": "https://www.youtube.com/watch?v=jHKf1eHp3eQ",
+          "authorUsername": null,
+          "title": "Artemis III: Our Next Step Back to the Moon",
+          "description": "In April 2026, we flew humans to the Moon for the first time in over 50 years during the Artemis II mission. But this mission was only the beginning.\n\nSoon after, the crew of Artemis III was announced: NASA astronauts Randy Bresnik, Andre Douglas, Frank Rubio, and ESA (European Space Agency) astronaut Luca Parmitano. Their mission will involve testing lunar lander systems in low Earth orbit.\n\nThe astronauts of Artemis II passed the baton to the Artemis III crew, as they are our next step in sending humanity back to the Moon\u2014this time, to stay.\n\nUnder Artemis, NASA will send astronauts on increasingly difficult missions to explore more of the Moon for scientific discovery, economic benefits, and to build on our foundation for the first crewed missions to Mars.\n\nLearn more about Artemis III: https://www.nasa.gov/mission/artemis-iii/\nDownload this video: https://images.nasa.gov/details/Artemis%20III%20Our%20Next%20Step%20Back%20to%20the%20Moon\n\nCredit: NASA",
+          "publishedAt": "2026-09-03T18:49:04.000Z",
+          "fetchedAt": "2026-09-21T07:40:51.104Z",
+          "metrics": {
+            "views": 0,
+            "likes": null,
+            "comments": null
+          }
+        }
+      ],
+      "warnings": [],
+      "error": null
+    },
+    {
+      "platform": "instagram",
+      "url": "https://www.instagram.com/nasa/",
+      "endpoint": "/instagram/channel-reels",
+      "status": "ok",
+      "items": [
+        {
+          "id": "instagram:DdhFkS7KGkZ",
+          "platform": "instagram",
+          "contentType": "reel",
+          "profileUrl": "https://www.instagram.com/nasa/",
+          "sourceUrl": "https://www.instagram.com/reel/DdhFkS7KGkZ/",
+          "authorUsername": "ravens",
+          "title": null,
+          "description": "Our first Leader of the Uprising \ud83d\udd25\n\nTune in on @paramountplus / @nfloncbs",
+          "publishedAt": "2026-09-20T17:20:00.000Z",
+          "fetchedAt": "2026-09-21T07:40:53.116Z",
+          "metrics": {
+            "views": 4425053,
+            "likes": 31735,
+            "comments": 239
+          }
+        },
+        {
+          "id": "instagram:DdRyQxKteC1",
+          "platform": "instagram",
+          "contentType": "reel",
+          "profileUrl": "https://www.instagram.com/nasa/",
+          "sourceUrl": "https://www.instagram.com/reel/DdRyQxKteC1/",
+          "authorUsername": "astro_jessica",
+          "title": null,
+          "description": "Volume up and get your groove on! A bit of weekend dancing on the @iss to start your week off right. A friend of mine was shocked when she realized that it was possible to dance in microgravity. Seems we can\u2019t keep this from the world for any longer! The power of music transcends Earth and space.",
+          "publishedAt": "2026-09-14T18:58:07.000Z",
+          "fetchedAt": "2026-09-21T07:40:53.116Z",
+          "metrics": {
+            "views": 8648546,
+            "likes": 201124,
+            "comments": 2127
+          }
+        },
+        {
+          "id": "instagram:DdPsDCWRT-u",
+          "platform": "instagram",
+          "contentType": "reel",
+          "profileUrl": "https://www.instagram.com/nasa/",
+          "sourceUrl": "https://www.instagram.com/reel/DdPsDCWRT-u/",
+          "authorUsername": "nasaadmin",
+          "title": null,
+          "description": "Today\u2019s @nfl flyover in Pittsburgh is just the beginning.\n\nThis is how @nasa does game day. \ud83c\uddfa\ud83c\uddf8",
+          "publishedAt": "2026-09-13T23:01:52.000Z",
+          "fetchedAt": "2026-09-21T07:40:53.116Z",
+          "metrics": {
+            "views": 5284435,
+            "likes": 56869,
+            "comments": 248
+          }
+        }
+      ],
+      "warnings": [
+        "instagram:DdhFkS7KGkZ has primary author @ravens; feed membership does not prove original authorship (shared/collaborative posts may differ).",
+        "instagram:DdRyQxKteC1 has primary author @astro_jessica; feed membership does not prove original authorship (shared/collaborative posts may differ).",
+        "instagram:DdPsDCWRT-u has primary author @nasaadmin; feed membership does not prove original authorship (shared/collaborative posts may differ).",
+        "More items exist; continuation cursor was not followed."
+      ],
+      "error": null
+    }
+  ],
+  "rankings": [
+    {
+      "group": "instagram:reel",
+      "basis": "known API-reported views within collected sample",
+      "top": [
+        {
+          "id": "instagram:DdRyQxKteC1",
+          "views": 8648546,
+          "sourceUrl": "https://www.instagram.com/reel/DdRyQxKteC1/"
+        },
+        {
+          "id": "instagram:DdPsDCWRT-u",
+          "views": 5284435,
+          "sourceUrl": "https://www.instagram.com/reel/DdPsDCWRT-u/"
+        },
+        {
+          "id": "instagram:DdhFkS7KGkZ",
+          "views": 4425053,
+          "sourceUrl": "https://www.instagram.com/reel/DdhFkS7KGkZ/"
+        }
+      ]
+    },
+    {
+      "group": "youtube:video",
+      "basis": "known API-reported views within collected sample",
+      "top": [
+        {
+          "id": "youtube:90Kgw_SvK4w",
+          "views": 0,
+          "sourceUrl": "https://www.youtube.com/watch?v=90Kgw_SvK4w"
+        },
+        {
+          "id": "youtube:IwZVXmQdX1E",
+          "views": 0,
+          "sourceUrl": "https://www.youtube.com/watch?v=IwZVXmQdX1E"
+        },
+        {
+          "id": "youtube:jHKf1eHp3eQ",
+          "views": 0,
+          "sourceUrl": "https://www.youtube.com/watch?v=jHKf1eHp3eQ"
+        }
+      ]
+    }
+  ],
+  "usage": {
+    "requests": 2,
+    "reservedCredits": 2,
+    "chargedCredits": null,
+    "reportedCreditsUsed": 2,
+    "costBasis": "modeled worst-case reservations; X-Credits-Used reports endpoint credits, not independently verified billing debits (monitor calls may be waived)",
+    "attempts": [
+      {
+        "profileUrl": "https://www.youtube.com/@NASA",
+        "endpoint": "/youtube/videos",
+        "attempt": 1,
+        "startedAt": "2026-09-21T07:40:50.691Z",
+        "status": 200,
+        "outcome": "usable",
+        "reservedCredits": 1,
+        "creditsRemaining": 20,
+        "creditsUsed": 1,
+        "elapsedMs": 414
+      },
+      {
+        "profileUrl": "https://www.instagram.com/nasa/",
+        "endpoint": "/instagram/channel-reels",
+        "attempt": 1,
+        "startedAt": "2026-09-21T07:40:51.105Z",
+        "status": 200,
+        "outcome": "usable",
+        "reservedCredits": 1,
+        "creditsRemaining": 20,
+        "creditsUsed": 1,
+        "elapsedMs": 2012
+      }
+    ]
+  },
+  "provenance": {
+    "collectedAt": "2026-09-21T07:40:53.117Z",
+    "environment": "SocialKit deployed development (socialkit-development)",
+    "authentication": "Internal monitor credential; billing deductions waived. Not a customer activation or paid usage test.",
+    "billing": "X-Credits-Used returned 1 per call (2 total reported endpoint credits); X-Credits-Remaining stayed 20. These headers do not prove a billed debit. Normal modeled request cost is 2 credits.",
+    "runtime": "v22.23.2",
+    "releaseVersion": "0.1.0",
+    "bundleSha256": "b982dcd633c25a04f18c6fad5f9390aff0055e0d8a4161b879a74e6f9f557ecf",
+    "inputs": "Two public NASA profile URLs; 3 items each; 2 calls/2 modeled credit reservations; retries disabled; no enrichment or pagination.",
+    "independentCheck": "Verified IDs against their response source URLs and matching feed profile; primary Instagram author differences retained and disclosed."
+  }
+}

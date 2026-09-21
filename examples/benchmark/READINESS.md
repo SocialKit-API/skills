@@ -10,7 +10,7 @@ The owner explicitly allowed skipping third-party work on 2026-09-21. Authentica
 | Adapter/local verification | `node --test examples/benchmark/benchmark.test.mjs`; synthetic fixtures and no spend. |
 | Credentials and balances | Three-provider credentials unavailable in investigated deployment environments; user excluded this third-party work. Do not create accounts/purchase access. |
 | Charge/cohort evidence | Requires an actual SocialKit pilot plus account pricing/cohort review. Current API reports `X-Credits-Used`; missing pricing-version header remains null. ScrapeCreators charge field is `credits_charged`; Apify is terminal `usageTotalUsd`. |
-| Budget | Root approved $5 maximum across pilot/full with existing balances, no purchases. Example bounded pilot maximum $0.36; 20+3 inputs/workload full maximum $4.14. Future runs subtract all prior reservations, including unknown failures. |
+| Budget | Example protocol cap: $5 across pilot/full runs; a future operator must confirm access and remaining budget before executing. No purchase or paid run was performed. Example bounded pilot maximum $0.36; 20+3 inputs/workload full maximum $4.14. Future runs subtract all prior reservations, including unknown failures. |
 | Public input selection | Four explicitly exploratory documentation examples supplied for pilot. Full 20–30 diverse public inputs/workload and prechecks are not fabricated. Full sample awaits resumption of comparative measurement. |
 | Manual source QA | Required because SocialKit caption response echoes requested URL and omits language/source. No independent identity/source assurance claimed. |
 | Full lock | Blocked by incomplete/excluded three-provider pilot; no fake lock is provided. Runner has a hash-bound lock gate when resumed. |

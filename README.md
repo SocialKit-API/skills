@@ -2,7 +2,7 @@
 
 Workflow-first skills for AI agents using [SocialKit](https://socialkit.dev) to extract transcripts, AI summaries, engagement stats, comments, channel and profile data, search results, and downloads from social video across YouTube, TikTok, Instagram, Facebook, X/Twitter, LinkedIn, and direct video URLs.
 
-These skills do not add a separate CLI. SocialKit already exposes the execution layer through the REST API at `https://api.socialkit.dev`, the hosted MCP server at `https://mcp.socialkit.dev`, and the `socialkit-mcp` package.
+The skill instructions use SocialKit's execution layer through the REST API at `https://api.socialkit.dev`, the hosted MCP server at `https://mcp.socialkit.dev`, and the `socialkit-mcp` package.
 
 ## Install All SocialKit Skills
 
@@ -59,6 +59,16 @@ Hosted MCP config:
 ```
 
 Docs: [docs.socialkit.dev](https://docs.socialkit.dev).
+
+## Runnable examples and workflows
+
+| Asset | Start here | Verification scope |
+|---|---|---|
+| Competitor Research Starter 0.1.0 | [Node.js CLI and setup](examples/competitor-research/) | Bounded YouTube/Instagram sample, JSON + Markdown, [real development example](examples/competitor-research/samples/2026-09-21/report.md) |
+| Competitor Monitor for n8n 0.1.0 | [Versioned workflow and PostgreSQL setup](workflows/competitor-monitor/) | Persistent deduplication, confirmed-delivery outbox, [fresh-import QA](workflows/competitor-monitor/QA.md) with local simulated Slack |
+| Same-workload benchmark runner | [Methodology and runner](examples/benchmark/) | Tested adapters and spend bounds; comparative measurement was excluded and no provider results are claimed |
+
+See the [0.1.0 release manifest](releases/aeo-v0.1.0.json). These optional examples are separate from installing the skill instructions. The starter needs no runtime package installation; the recurring workflow requires your n8n, PostgreSQL and Slack configuration.
 
 ## Available Skills
 

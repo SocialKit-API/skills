@@ -1,0 +1,48 @@
+{
+  "manifestVersion": "1.0.0",
+  "version": "0.1.0",
+  "preparedAt": "2026-09-21",
+  "releaseState": "pull-request-review",
+  "gitTag": null,
+  "assets": [
+    {
+      "id": "competitor-research-starter",
+      "version": "0.1.0",
+      "path": "examples/competitor-research",
+      "entrypoint": "examples/competitor-research/run.mjs",
+      "schemaVersion": "1.0.0",
+      "readiness": "Verified local setup and real SocialKit development collection. Sample monitor billing was waived; not customer activation or paid usage evidence.",
+      "evidence": [
+        "examples/competitor-research/core.test.mjs",
+        "examples/competitor-research/cli.test.mjs",
+        "examples/competitor-research/samples/2026-09-21/provenance.json"
+      ]
+    },
+    {
+      "id": "competitor-monitor-n8n",
+      "version": "0.1.0",
+      "path": "workflows/competitor-monitor",
+      "entrypoint": "workflows/competitor-monitor/socialkit-competitor-monitor.v0.1.0.json",
+      "sha256": "1b756821befdb036a205ed25af3eadf2dcb0d26554c3d07c92e2997d70e9f589",
+      "readiness": "Fresh n8n import and execution verified using persistent local PostgreSQL engine and simulated external APIs. No actual external Slack delivery claimed.",
+      "evidence": [
+        "workflows/competitor-monitor/QA.md",
+        "workflows/competitor-monitor/qa-results.json",
+        "workflows/competitor-monitor/qa-local.mjs"
+      ]
+    },
+    {
+      "id": "same-workload-benchmark-runner",
+      "version": "draft-0.1.0",
+      "path": "examples/benchmark",
+      "entrypoint": "examples/benchmark/run.mjs",
+      "readiness": "Protocol and runner available; third-party authenticated pilot/full measurement excluded by owner. No comparative results, winner or performance claims.",
+      "evidence": [
+        "examples/benchmark/METHODOLOGY.md",
+        "examples/benchmark/READINESS.md",
+        "examples/benchmark/benchmark.test.mjs"
+      ]
+    }
+  ],
+  "releaseGate": "Create a tag only after final review and verification. This manifest records review readiness, not a published GitHub release."
+}

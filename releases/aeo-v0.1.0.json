@@ -24,11 +24,12 @@
       "path": "workflows/competitor-monitor",
       "entrypoint": "workflows/competitor-monitor/socialkit-competitor-monitor.v0.1.0.json",
       "sha256": "d40a0ea11244593a665e690a3eae31b8971a97893ce56d953c553a462a4d4324",
-      "readiness": "Fresh n8n import and execution verified using persistent local PostgreSQL engine and simulated external APIs. No actual external Slack delivery claimed.",
+      "readiness": "Fresh n8n import and execution verified using PGlite and native PostgreSQL 17.10, including simultaneous lease claims and database server restart. External APIs were simulated; no actual external Slack delivery claimed.",
       "evidence": [
         "workflows/competitor-monitor/QA.md",
         "workflows/competitor-monitor/qa-results.json",
-        "workflows/competitor-monitor/qa-local.mjs"
+        "workflows/competitor-monitor/qa-local.mjs",
+        "workflows/competitor-monitor/qa-native-results.json"
       ]
     },
     {

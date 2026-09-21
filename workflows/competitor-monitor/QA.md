@@ -22,3 +22,19 @@ The separate [SQL persistence test](persistence.test.mjs) passed lease exclusion
 The [starter](../../examples/competitor-research/) separately passed ten Node tests, including a fresh-directory execution of the README command, bad-key handling, invalid input without requests, real transport timeout, nullable metrics/zero, content/profile identity, secret-safe parse errors, request/time/credit caps, and immediate stop after an unexpected reported credit charge. Its real development sample uses Node.js 22.23.2 and the actual SocialKit endpoints. Monitor credentials waive billing; endpoint credit headers do not prove paid usage.
 
 Observed blockers fixed before these results: n8n CLI import requires a workflow ID; the Code sandbox lacks the browser `URL` global; shared Instagram feed items can have a different primary author. All are reflected in the final artifact and documented contract.
+
+## Additional native PostgreSQL verification
+
+The exact same export also passed all ten n8n cases against **native PostgreSQL 17.10**, running as a macOS x86_64 process on the arm64 workstation. Both SQL integration tests passed, including simultaneous independent database connections competing for the same lease: exactly one owner won. After an actual database server restart, all nine state rows and nine delivered rows remained unchanged, and staging the two previously delivered first-run items stayed quiet. [Native machine-readable results](qa-native-results.json) record the database version and unchanged export hash. These are local native-database checks, not hosted CI or a production deployment test.
+
+The isolated binary package was `@embedded-postgres/darwin-arm64@17.10.0-beta.17`, installed under a temporary directory. Its native `initdb` and `pg_ctl` initialized a fresh trust-authenticated database bound only to `127.0.0.1:55440`; no system installation or application database was altered. The same existing commands ran with `AEO_QA_POSTGRES_URL` pointing at that database.
+
+To reproduce restart verification on your own isolated local test database after running `qa-local.mjs`:
+
+```bash
+node workflows/competitor-monitor/restart-check.mjs before /private/tmp/monitor-qa-state.json
+# Stop and restart only your isolated QA PostgreSQL server using its service manager.
+node workflows/competitor-monitor/restart-check.mjs after /private/tmp/monitor-qa-state.json
+```
+
+The helper requires the same test connection environment as the integration harness, refuses non-loopback hosts, and compares persisted fixture state before checking that an already-delivered digest remains quiet. Never run it against an application or production database.

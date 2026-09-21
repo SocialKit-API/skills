@@ -1,0 +1,93 @@
+{
+  "checkedAt": "2026-09-21T07:57:50.763Z",
+  "artifactSha256": "d40a0ea11244593a665e690a3eae31b8971a97893ce56d953c553a462a4d4324",
+  "n8nVersion": "2.39.8",
+  "databaseVersion": "PostgreSQL 17.10 on x86_64-apple-darwin24.6.0, compiled by Apple clang version 17.0.0 (clang-1700.6.3.2), 64-bit",
+  "scope": "Fresh n8n import and real node execution against native PostgreSQL 17.10. SocialKit and Slack responses simulated locally; no external Slack delivery. Each execution starts a fresh n8n process.",
+  "results": [
+    {
+      "case": "first-collection",
+      "passed": true,
+      "apiRequests": 2,
+      "simulatedSlackRequests": 1,
+      "expectedExecutionStatus": "success"
+    },
+    {
+      "case": "repeat-after-process-restart",
+      "passed": true,
+      "apiRequests": 2,
+      "simulatedSlackRequests": 0,
+      "expectedExecutionStatus": "success"
+    },
+    {
+      "case": "empty-feeds",
+      "passed": true,
+      "apiRequests": 2,
+      "simulatedSlackRequests": 0,
+      "expectedExecutionStatus": "success"
+    },
+    {
+      "case": "bad-auth",
+      "passed": true,
+      "apiRequests": 2,
+      "simulatedSlackRequests": 0,
+      "expectedExecutionStatus": "error"
+    },
+    {
+      "case": "invalid-profile-before-requests",
+      "passed": true,
+      "apiRequests": 0,
+      "simulatedSlackRequests": 0,
+      "expectedExecutionStatus": "error"
+    },
+    {
+      "case": "unavailable-profile-partial",
+      "passed": true,
+      "apiRequests": 2,
+      "simulatedSlackRequests": 1,
+      "expectedExecutionStatus": "success"
+    },
+    {
+      "case": "slack-rate-limit-retains-outbox",
+      "passed": true,
+      "apiRequests": 2,
+      "simulatedSlackRequests": 1,
+      "expectedExecutionStatus": "error"
+    },
+    {
+      "case": "unexpired-lease-excludes-second-run",
+      "passed": true,
+      "apiRequests": 0,
+      "simulatedSlackRequests": 0,
+      "expectedExecutionStatus": "success"
+    },
+    {
+      "case": "pending-retry-without-api-spend",
+      "passed": true,
+      "apiRequests": 0,
+      "simulatedSlackRequests": 1,
+      "expectedExecutionStatus": "success"
+    },
+    {
+      "case": "confirmed-retry-repeat-quiet",
+      "passed": true,
+      "apiRequests": 2,
+      "simulatedSlackRequests": 0,
+      "expectedExecutionStatus": "success"
+    }
+  ],
+  "binaryPackage": "@embedded-postgres/darwin-arm64@17.10.0-beta.17 (macOS x86_64 PostgreSQL process on an arm64 host)",
+  "sqlTests": {
+    "leaseDeliveryAndReconnect": true,
+    "simultaneousConnectionsElectOneOwner": true
+  },
+  "serverRestart": {
+    "checkedAt": "2026-09-21T07:58:51.194Z",
+    "databaseVersion": "PostgreSQL 17.10 on x86_64-apple-darwin24.6.0, compiled by Apple clang version 17.0.0 (clang-1700.6.3.2), 64-bit",
+    "serverRestartRetainedAllState": true,
+    "stateRows": 9,
+    "deliveredRows": 9,
+    "alreadyDeliveredItems": 2,
+    "repeatDigestQuiet": true
+  }
+}

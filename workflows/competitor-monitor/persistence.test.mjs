@@ -4,7 +4,8 @@ import assert from 'node:assert/strict';
 import { readFile } from 'node:fs/promises';
 import { createRequire } from 'node:module';
 const require = createRequire(process.env.AEO_QA_MODULES || import.meta.url);
-const pgp = require('pg-promise')();
+// Independent pools are intentional for the simultaneous-owner test.
+const pgp = require('pg-promise')({noWarnings:true});
 class Client { constructor({connectionString}) {this.db=pgp(connectionString)} async connect(){} async query(sql,args){return {rows:await this.db.any(sql,args)}} async end(){await this.db.$pool.end()} }
 const url = process.env.AEO_QA_POSTGRES_URL;
 if (!url) throw new Error('Set AEO_QA_POSTGRES_URL to an isolated test database.');
@@ -35,4 +36,22 @@ test('lease, delivery failure, expiry, stale owner, confirmed commit and repeat 
  // Real disconnect/reconnect verifies durable database state rather than a JS cache.
  await client.end(); const after = new Client({connectionString:url});await after.connect();
  assert.equal((await after.query('SELECT * FROM sk_monitor_delivered WHERE destination=$1',[dest])).rows.length,2);await after.end();
+});
+
+test('simultaneous database connections elect one lease owner',async()=>{
+ const a=new Client({connectionString:url}),b=new Client({connectionString:url});
+ const concurrentDest=`concurrent-${Date.now()}`;
+ try {
+  await Promise.all([a.connect(),b.connect()]);
+  const claims=await Promise.all([
+   a.query('SELECT * FROM sk_monitor_claim($1,$2)',[concurrentDest,'simultaneous-a']),
+   b.query('SELECT * FROM sk_monitor_claim($1,$2)',[concurrentDest,'simultaneous-b']),
+  ]);
+  assert.equal(claims.reduce((sum,r)=>sum+r.rows.length,0),1);
+  const winner=claims.flatMap(r=>r.rows)[0].lease_owner;
+  const loser=winner==='simultaneous-a'?'simultaneous-b':'simultaneous-a';
+  await a.query('SELECT * FROM sk_monitor_stage($1,$2,$3)',[concurrentDest,winner,report]);
+  assert.equal((await b.query('SELECT * FROM sk_monitor_guard($1,$2)',[concurrentDest,loser])).rows.length,0);
+  assert.equal((await a.query('SELECT * FROM sk_monitor_guard($1,$2)',[concurrentDest,winner])).rows.length,1);
+ } finally {await Promise.all([a.end(),b.end()]);}
 });

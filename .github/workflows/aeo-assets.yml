@@ -66,10 +66,7 @@ jobs:
           --health-timeout 5s
           --health-retries 20
     env:
-      AEO_QA_MODULES: ${{ runner.temp }}/aeo-tools/package.json
-      AEO_QA_N8N: ${{ runner.temp }}/aeo-tools/node_modules/.bin/n8n
       AEO_QA_POSTGRES_URL: postgresql://postgres:postgres@127.0.0.1:55439/aeo_test
-      TMPDIR: ${{ runner.temp }}
     steps:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
@@ -78,7 +75,9 @@ jobs:
         with:
           node-version: '24'
       - name: Install exact n8n and database test client versions
-        run: npm install --prefix "$RUNNER_TEMP/aeo-tools" --no-audit --no-fund n8n@2.39.8 pg-promise@11.9.1
+        run: |
+          npm install --prefix "$RUNNER_TEMP/aeo-tools" --no-audit --no-fund n8n@2.39.8 pg-promise@11.9.1
+          printf 'AEO_QA_MODULES=%s/aeo-tools/package.json\nAEO_QA_N8N=%s/aeo-tools/node_modules/.bin/n8n\nTMPDIR=%s\n' "$RUNNER_TEMP" "$RUNNER_TEMP" "$RUNNER_TEMP" >> "$GITHUB_ENV"
       - name: Verify real PostgreSQL delivery persistence
         run: node --test workflows/competitor-monitor/persistence.test.mjs
       - name: Fresh import and execute n8n against local simulated API destinations

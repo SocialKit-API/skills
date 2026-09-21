@@ -1,0 +1,8 @@
+.env
+.env.*
+!.env.example
+config.local.json
+inputs.full.json
+methodology.lock.json
+runs/
+private/

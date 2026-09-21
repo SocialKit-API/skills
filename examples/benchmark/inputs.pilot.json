@@ -1,0 +1,6 @@
+[
+  { "id": "pilot-youtube-sc", "sample": "pilot", "workload": "youtube-caption", "url": "https://www.youtube.com/watch?v=bjVIDXPP7Uk", "selectionNote": "ScrapeCreators official caption documentation example; exploratory only, public/English precheck pending." },
+  { "id": "pilot-youtube-poidata", "sample": "pilot", "workload": "youtube-caption", "url": "https://www.youtube.com/watch?v=UMIMKzstuik", "selectionNote": "Selected Apify Actor official output example; exploratory only, public/English precheck pending." },
+  { "id": "pilot-reel-sc", "sample": "pilot", "workload": "instagram-reel", "url": "https://www.instagram.com/reel/DF5s0duxDts/", "selectionNote": "ScrapeCreators official single-post example shortcode; exploratory only, public/Reel precheck pending." },
+  { "id": "pilot-reel-apify", "sample": "pilot", "workload": "instagram-reel", "url": "https://www.instagram.com/reel/DX7lzTOJ1p6/", "selectionNote": "Apify official Reel scraper output example; exploratory only, public/Reel precheck pending." }
+]

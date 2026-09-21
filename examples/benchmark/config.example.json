@@ -1,0 +1,24 @@
+{
+  "methodologyVersion": "1.0",
+  "phase": "pilot",
+  "providers": ["socialkit", "scrapecreators", "apify"],
+  "socialkitBaseUrl": "https://api.socialkit.dev",
+  "socialkitEnvironment": "production",
+  "clientRegion": "REPLACE with actual client region/network",
+  "attemptTimeoutMs": 120000,
+  "pollMs": 2000,
+  "retryDelayMs": 2000,
+  "maxAttemptsPerInput": 2,
+  "maxHttpRequestsPerAttempt": 70,
+  "maxWallTimeMs": 3600000,
+  "budget": { "maxUsd": 0.36, "maxAttempts": 24, "maxCredits": { "socialkit": 8, "scrapecreators": 8 } },
+  "costs": {
+    "socialkit": { "maxUsd": 0.01, "maxCredits": 1, "usdPerCredit": 0.0024166666666666666, "reviewed": false, "source": "EXAMPLE ONLY: Standard monthly $29/12000 credits; verify test account plan/cohort and charge evidence. https://socialkit.dev/#pricing" },
+    "scrapecreators": { "maxUsd": 0.01, "maxCredits": 1, "usdPerCredit": 0.00188, "reviewed": false, "source": "EXAMPLE ONLY: $47/25000 credit package; verify test account package and 1-credit workload charge. https://scrapecreators.com/#pricing" },
+    "apify": { "maxUsd": 0.025, "maxCredits": 0, "reviewed": false, "source": "Explicit per-run PAY_PER_EVENT cap, authenticated Actor pricing preflight required; usageTotalUsd is observed terminal cost." }
+  },
+  "actors": {
+    "youtube-caption": { "name": "poidata/youtube-transcript-scraper", "id": "A5s2BdfybeiJprZ9W", "build": "0.0.74", "buildId": "GTjjmcXk0cAVl3BSE" },
+    "instagram-reel": { "name": "apify/instagram-reel-scraper", "id": "xMc5Ga1oCONPmWJIa", "build": "0.0.569", "buildId": "W0VMuMDxn3eft3fge" }
+  }
+}

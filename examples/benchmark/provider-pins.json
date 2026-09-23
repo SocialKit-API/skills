@@ -1,0 +1,201 @@
+[
+  {
+    "checkedAt": "2026-09-21T07:21:05.376042+00:00",
+    "source": "https://api.apify.com/v2/acts/poidata~youtube-transcript-scraper",
+    "actor": "poidata~youtube-transcript-scraper",
+    "actorId": "A5s2BdfybeiJprZ9W",
+    "build": {
+      "id": "GTjjmcXk0cAVl3BSE",
+      "actId": "A5s2BdfybeiJprZ9W",
+      "buildNumber": "0.0.74",
+      "status": "SUCCEEDED"
+    },
+    "pricing": {
+      "minimalMaxTotalChargeUsd": null,
+      "pricingModel": "PAY_PER_EVENT",
+      "isPriceChangeNotificationSuppressed": false,
+      "pricingPerEvent": {
+        "actorChargeEvents": {
+          "apify-default-dataset-item": {
+            "eventTitle": "Result",
+            "eventDescription": "Single result in the default dataset.",
+            "isOneTimeEvent": false,
+            "eventPriceUsd": 1e-05,
+            "isPrimaryEvent": true
+          },
+          "video-processed": {
+            "eventTitle": "Video processed",
+            "eventDescription": "Single successful video processed.",
+            "isOneTimeEvent": false,
+            "eventPriceUsd": 1e-05
+          },
+          "tlang-translated": {
+            "eventTitle": "Translation",
+            "eventDescription": "Single translation.",
+            "isOneTimeEvent": false,
+            "eventPriceUsd": 1e-05
+          },
+          "apify-actor-start": {
+            "eventTitle": "Actor Start",
+            "eventDescription": "Charged when the Actor starts running. Number of events charged depends on Actor memory (one event per GB, minimum one event).",
+            "isOneTimeEvent": true,
+            "eventPriceUsd": 1e-05
+          }
+        }
+      },
+      "startedAt": "2026-09-02T04:00:35.649Z",
+      "createdAt": "2026-09-02T04:00:37.005Z",
+      "apifyMarginPercentage": 0.2
+    }
+  },
+  {
+    "checkedAt": "2026-09-21T07:21:08.159645+00:00",
+    "source": "https://api.apify.com/v2/acts/apify~instagram-reel-scraper",
+    "actor": "apify~instagram-reel-scraper",
+    "actorId": "xMc5Ga1oCONPmWJIa",
+    "build": {
+      "id": "W0VMuMDxn3eft3fge",
+      "actId": "xMc5Ga1oCONPmWJIa",
+      "buildNumber": "0.0.569",
+      "status": "SUCCEEDED"
+    },
+    "pricing": {
+      "minimalMaxTotalChargeUsd": 0.0073,
+      "pricingModel": "PAY_PER_EVENT",
+      "isPriceChangeNotificationSuppressed": true,
+      "pricingPerEvent": {
+        "actorChargeEvents": {
+          "reel": {
+            "eventTitle": "Reel",
+            "eventDescription": "Each reel written to the dataset.",
+            "isOneTimeEvent": false,
+            "eventTieredPricingUsd": {
+              "FREE": {
+                "tieredEventPriceUsd": 0.0026
+              },
+              "BRONZE": {
+                "tieredEventPriceUsd": 0.0023
+              },
+              "SILVER": {
+                "tieredEventPriceUsd": 0.0014
+              },
+              "GOLD": {
+                "tieredEventPriceUsd": 0.001
+              },
+              "PLATINUM": {
+                "tieredEventPriceUsd": 0.0008
+              },
+              "DIAMOND": {
+                "tieredEventPriceUsd": 0.0004
+              }
+            },
+            "isPrimaryEvent": true
+          },
+          "actor-start": {
+            "eventTitle": "Actor start",
+            "eventDescription": "Flat charge for starting an Actor run.",
+            "isOneTimeEvent": true,
+            "eventTieredPricingUsd": {
+              "FREE": {
+                "tieredEventPriceUsd": 0.001
+              },
+              "BRONZE": {
+                "tieredEventPriceUsd": 0.001
+              },
+              "SILVER": {
+                "tieredEventPriceUsd": 0.001
+              },
+              "GOLD": {
+                "tieredEventPriceUsd": 0.001
+              },
+              "PLATINUM": {
+                "tieredEventPriceUsd": 0.001
+              },
+              "DIAMOND": {
+                "tieredEventPriceUsd": 0.001
+              }
+            }
+          },
+          "shares-count": {
+            "eventTitle": "Add-on: Shares count",
+            "eventDescription": "Extra cost per reel scraped with a shares count.",
+            "isOneTimeEvent": false,
+            "eventTieredPricingUsd": {
+              "FREE": {
+                "tieredEventPriceUsd": 0.007
+              },
+              "BRONZE": {
+                "tieredEventPriceUsd": 0.006
+              },
+              "SILVER": {
+                "tieredEventPriceUsd": 0.005
+              },
+              "GOLD": {
+                "tieredEventPriceUsd": 0.004
+              },
+              "PLATINUM": {
+                "tieredEventPriceUsd": 0.003
+              },
+              "DIAMOND": {
+                "tieredEventPriceUsd": 0.002
+              }
+            }
+          },
+          "transcript": {
+            "eventTitle": "Add-on: Transcript",
+            "eventDescription": "Charged per started minute per reel.",
+            "isOneTimeEvent": false,
+            "eventTieredPricingUsd": {
+              "FREE": {
+                "tieredEventPriceUsd": 0.048
+              },
+              "BRONZE": {
+                "tieredEventPriceUsd": 0.041
+              },
+              "SILVER": {
+                "tieredEventPriceUsd": 0.034
+              },
+              "GOLD": {
+                "tieredEventPriceUsd": 0.027
+              },
+              "PLATINUM": {
+                "tieredEventPriceUsd": 0.016
+              },
+              "DIAMOND": {
+                "tieredEventPriceUsd": 0.01
+              }
+            }
+          },
+          "video-download": {
+            "eventTitle": "Add-on: Video download",
+            "eventDescription": "Charged per started 1 MB downloaded per reel.",
+            "isOneTimeEvent": false,
+            "eventTieredPricingUsd": {
+              "FREE": {
+                "tieredEventPriceUsd": 0.02
+              },
+              "BRONZE": {
+                "tieredEventPriceUsd": 0.015
+              },
+              "SILVER": {
+                "tieredEventPriceUsd": 0.012
+              },
+              "GOLD": {
+                "tieredEventPriceUsd": 0.01
+              },
+              "PLATINUM": {
+                "tieredEventPriceUsd": 0.0085
+              },
+              "DIAMOND": {
+                "tieredEventPriceUsd": 0.007
+              }
+            }
+          }
+        }
+      },
+      "createdAt": "2026-03-11T14:56:04.494Z",
+      "startedAt": "2026-03-11T14:56:04.494Z",
+      "apifyMarginPercentage": 0.2
+    }
+  }
+]

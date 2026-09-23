@@ -1,0 +1,4 @@
+{
+  "profiles": ["https://www.youtube.com/@NASA", "https://www.instagram.com/nasa/"],
+  "limits": { "limit": 10, "maxCredits": 6, "maxRequests": 6, "retries": 1 }
+}

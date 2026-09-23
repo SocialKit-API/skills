@@ -1,0 +1,95 @@
+name: AEO developer assets
+
+on:
+  pull_request:
+  push:
+    branches: [main, feat/aeo-developer-assets]
+
+permissions:
+  contents: read
+
+concurrency:
+  group: aeo-assets-${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  unit-and-export:
+    runs-on: ubuntu-24.04
+    strategy:
+      matrix:
+        node: ['22', '24']
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020 # v7.0.0
+        with:
+          node-version: ${{ matrix.node }}
+      - name: Verify dependency-free starters and benchmark adapters
+        run: node --test examples/competitor-research/*.test.mjs examples/benchmark/benchmark.test.mjs
+      - name: Verify generated workflow matches reviewed export
+        run: |
+          node workflows/competitor-monitor/build.mjs
+          git diff --exit-code -- workflows/competitor-monitor/socialkit-competitor-monitor.v0.1.0.json
+          node --input-type=module <<'JS'
+          import {readFile} from 'node:fs/promises';
+          import {createHash} from 'node:crypto';
+          import assert from 'node:assert/strict';
+          const path='workflows/competitor-monitor/socialkit-competitor-monitor.v0.1.0.json';
+          const hash=createHash('sha256').update(await readFile(path)).digest('hex');
+          const qa=JSON.parse(await readFile('workflows/competitor-monitor/qa-results.json'));
+          const release=JSON.parse(await readFile('releases/aeo-v0.1.0.json'));
+          assert.equal(hash,qa.artifactSha256);
+          assert.equal(hash,release.assets.find(a=>a.id==='competitor-monitor-n8n').sha256);
+          for(const asset of release.assets) await readFile(asset.entrypoint);
+          const workflow=JSON.parse(await readFile(path));
+          assert.equal(workflow.active,false);
+          assert.equal(workflow.nodes.some(n=>n.credentials),false);
+          for(const node of workflow.nodes.filter(n=>n.type==='n8n-nodes-base.code')) new Function(node.parameters.jsCode);
+          JS
+
+  n8n-postgres-integration:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 20
+    services:
+      postgres:
+        image: postgres:17@sha256:f4c66b820c6f974249089d3d16d86a3698eae11e8746eb6644b2271031e91232
+        env:
+          POSTGRES_USER: postgres
+          POSTGRES_PASSWORD: postgres
+          POSTGRES_DB: aeo_test
+        ports:
+          - 55439:5432
+        options: >-
+          --health-cmd "pg_isready -U postgres -d aeo_test"
+          --health-interval 5s
+          --health-timeout 5s
+          --health-retries 20
+    env:
+      AEO_QA_POSTGRES_URL: postgresql://postgres:postgres@127.0.0.1:55439/aeo_test
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020 # v7.0.0
+        with:
+          node-version: '24'
+      - name: Install exact n8n and database test client versions
+        run: |
+          npm install --prefix "$RUNNER_TEMP/aeo-tools" --no-audit --no-fund n8n@2.39.8 pg-promise@11.9.1
+          printf 'AEO_QA_MODULES=%s/aeo-tools/package.json\nAEO_QA_N8N=%s/aeo-tools/node_modules/.bin/n8n\nTMPDIR=%s\n' "$RUNNER_TEMP" "$RUNNER_TEMP" "$RUNNER_TEMP" >> "$GITHUB_ENV"
+      - name: Verify real PostgreSQL delivery persistence
+        run: node --test workflows/competitor-monitor/persistence.test.mjs
+      - name: Fresh import and execute n8n against local simulated API destinations
+        run: node workflows/competitor-monitor/qa-local.mjs
+      - name: Preserve fixture-only QA logs
+        if: always()
+        uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7.0.1
+        with:
+          name: n8n-postgres-qa
+          retention-days: 14
+          if-no-files-found: ignore
+          path: |
+            ${{ runner.temp }}/socialkit-monitor-qa-*/*.log
+            ${{ runner.temp }}/socialkit-monitor-qa-*/summary.json
+            ${{ runner.temp }}/socialkit-monitor-qa-*/calls.json

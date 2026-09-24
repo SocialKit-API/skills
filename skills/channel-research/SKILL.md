@@ -1,6 +1,6 @@
 ---
 name: channel-research
-description: Research creators, profiles, and pages through SocialKit across YouTube, TikTok, Instagram, Facebook, X/Twitter, and LinkedIn. Use when the user asks for follower or subscriber counts, profile or channel stats, a creator's bio, or a list of their recent videos, reels, posts, or tweets. Use for competitor analysis and creator vetting.
+description: Research creators, profiles, and pages through SocialKit across YouTube, TikTok, Instagram, Facebook, X/Twitter, and LinkedIn. Use when the user asks for follower or subscriber counts, profile or channel stats, a creator's bio, or a list of their recent videos, reels, posts, or tweets. Use for competitor analysis and creator vetting. Not for posting, private accounts, or unrelated website scraping.
 ---
 
 # Channel Research
@@ -29,7 +29,6 @@ Two moves make up most research: get the profile stats, then list recent content
 |---|---|---|
 | YouTube | `/youtube/videos` / `youtube_videos` | `url`, `limit` |
 | TikTok | `/tiktok/channel-videos` / `tiktok_channel_videos` | `url`, `limit` |
-| TikTok (aggregate) | `/tiktok/channel-video-metrics` / `tiktok_channel_video_metrics` | `url` |
 | Instagram (posts) | `/instagram/channel-posts` / `instagram_channel_posts` | `url`, `limit` |
 | Instagram (reels) | `/instagram/channel-reels` / `instagram_channel_reels` | `url`, `limit` |
 | X/Twitter | `/twitter/tweets` / `twitter_tweets` | `url`, `limit` |
@@ -80,3 +79,7 @@ curl -s -X POST "https://api.socialkit.dev/tiktok/channel-stats/bulk" \
 
 - Lead with the numbers that answer the question: audience size, post cadence, standout videos.
 - Keep the returned URLs so the user can drill into any post.
+
+Use only public supported content. Do not route posting, private-account access, login bypass, or unrelated website scraping here. See `socialkit-api` for authentication, endpoint-specific pagination, failure handling, and credits. Preserve unknown metrics and scope conclusions to the collected sample.
+
+For public Reddit community metadata, use REST `/reddit/subreddit/details` with a community URL or subreddit name. This is not a post feed or Reddit search. Compute TikTok aggregates locally over a bounded `/tiktok/channel-videos` sample; state the sample size and do not substitute missing views with zero.

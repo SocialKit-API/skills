@@ -1,6 +1,6 @@
 ---
 name: video-summaries
-description: Summarize social videos with AI through SocialKit across YouTube, TikTok, Instagram, Facebook, and direct video file URLs. Use when the user asks for a summary, TL;DR, main points, key takeaways, topics, tone, or target audience of a video, including one video or many at once. Returns a structured summary derived from the transcript.
+description: Summarize social videos with AI through SocialKit across YouTube, TikTok, Instagram, Facebook, and direct video file URLs. Use when the user asks for a summary, TL;DR, main points, key takeaways, topics, tone, or target audience of a video, including one video or many at once. Returns a structured AI summary; source availability varies. Not for posting, private accounts, or unrelated website scraping.
 ---
 
 # Video Summaries
@@ -55,7 +55,7 @@ curl -s -X POST "https://api.socialkit.dev/tiktok/summarize/bulk" \
 
 ## Common Pitfalls
 
-- Summaries come from the transcript. A video with no speech will produce a thin or empty summary.
+- TikTok summarySource=visual uses images and description only after confirmed caption absence. Label this source and never invent spoken quotes; operational extraction failures do not justify generating a fallback summary.
 - Do not summarize an X or LinkedIn video with a summarize endpoint. Transcribe first, then summarize.
 - When comparing several videos, run them in one bulk call rather than many single calls.
 
@@ -63,3 +63,5 @@ curl -s -X POST "https://api.socialkit.dev/tiktok/summarize/bulk" \
 
 - Match the depth the user asked for. Do not return all six fields when they wanted a sentence.
 - When summarizing many videos, add a short cross-video takeaway, not just a stack of separate summaries.
+
+Use only public supported content. Do not route posting, private-account access, login bypass, or unrelated website scraping here. See `socialkit-api` for authentication, endpoint-specific pagination, failure handling, and credits. Preserve unknown metrics and scope conclusions to the collected sample.

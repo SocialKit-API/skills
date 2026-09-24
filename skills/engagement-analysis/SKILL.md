@@ -1,6 +1,6 @@
 ---
 name: engagement-analysis
-description: Analyze per-video engagement and comments through SocialKit across YouTube, TikTok, Instagram, and Facebook. Use when the user asks for views, likes, shares, reactions, comment counts, or the actual comments on a post, or wants sentiment and audience reaction analysis. Also covers single tweet and single LinkedIn post detail.
+description: Analyze per-video engagement and comments through SocialKit across YouTube, TikTok, Instagram, and Facebook. Use when the user asks for views, likes, shares, reactions, comment counts, or the actual comments on a post, or wants sentiment and audience reaction analysis. Also covers single tweet and single LinkedIn post detail. Not for posting, private accounts, or unrelated website scraping.
 ---
 
 # Engagement Analysis
@@ -24,18 +24,18 @@ Measure how a specific post performed and what the audience said. Two moves: pul
 
 | Source | Endpoint / MCP tool | Params |
 |---|---|---|
-| YouTube | `/youtube/comments` / `youtube_comments` | `url`, `limit`, `cursor` |
+| YouTube | `/youtube/comments` / `youtube_comments` | `url`, `limit`; no cursor |
 | TikTok | `/tiktok/comments` / `tiktok_comments` | `url`, `limit`, `cursor` |
 | Instagram | `/instagram/comments` / `instagram_comments` | `url`, `limit`, `cursor` |
 | Facebook | `/facebook/comments` / `facebook_comments` | `url`, `limit`, `cursor` |
 
-Each comment includes author, text, like count, and reply count.
+Comment fields vary by platform. Preserve missing counts as unknown, including null Instagram views/shares. Instagram comments expose collectionStatus and stopReason; hasMore=false alone does not establish completeness.
 
 ## Workflow
 
 1. For "how did this do", call the stats endpoint for the video URL.
-2. For "what did people say", call the comments endpoint. Set `limit` and page with `cursor` for more.
-3. To analyze sentiment, pull a representative batch of comments, then summarize themes and tone yourself. Quote the highest-liked comments as evidence.
+2. For "what did people say", call the comments endpoint. Set `limit`; use a returned cursor only where supported and cap the pages fetched.
+3. To analyze sentiment, pull a bounded sample of returned comments, then summarize themes and tone yourself. State the sample size and collection limits; a popularity-ranked sample is not representative of the entire audience.
 4. To compare many videos, use the bulk stats or bulk comments routes rather than looping.
 
 ## Examples
@@ -59,7 +59,7 @@ Bulk stats: `/youtube/stats/bulk`, `/tiktok/stats/bulk`, `/instagram/stats/bulk`
 ## Common Pitfalls
 
 - Stats and comments need a single post URL, not a profile URL.
-- Comments paginate. One page is a sample, not the full thread. Use `cursor` when the user needs more.
+- YouTube comments have no cursor input. Other supported comment endpoints may expose a cursor; stop when absent/repeated or the page budget is reached. A collected sample is not the full discussion.
 - Like counts and view counts are point-in-time. Note when the user needs a trend rather than a snapshot.
 - Sentiment is your analysis of the returned comments, not a field the API returns.
 
@@ -68,3 +68,7 @@ Bulk stats: `/youtube/stats/bulk`, `/tiktok/stats/bulk`, `/instagram/stats/bulk`
 - Lead with the headline numbers, then the comment themes.
 - When claiming sentiment, back it with a few quoted, high-engagement comments.
 - Keep the post URL and any IDs for follow-up.
+
+Use only public supported content. Do not route posting, private-account access, login bypass, or unrelated website scraping here. See `socialkit-api` for authentication, endpoint-specific pagination, failure handling, and credits. Preserve unknown metrics and scope conclusions to the collected sample.
+
+Use `/twitter/thread` / `twitter_thread` for a public author self-reply chain, `/twitter/article` / `twitter_article` for full native X Articles, and REST `/reddit/post` for a public Reddit submission. These do not imply Reddit comment collection or arbitrary website extraction.

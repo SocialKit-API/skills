@@ -1,0 +1,100 @@
+{
+  "schemaVersion": 1,
+  "source": "TalkShopClub/socialkit-mcp-skyfall/tool-inventory.json",
+  "groups": [
+    {
+      "id": "youtube",
+      "platform": "YouTube",
+      "tools": [
+        "youtube_transcript",
+        "youtube_summarize",
+        "youtube_stats",
+        "youtube_comments",
+        "youtube_channel_stats",
+        "youtube_videos",
+        "youtube_search",
+        "youtube_download"
+      ]
+    },
+    {
+      "id": "tiktok",
+      "platform": "TikTok",
+      "tools": [
+        "tiktok_transcript",
+        "tiktok_summarize",
+        "tiktok_stats",
+        "tiktok_comments",
+        "tiktok_channel_stats",
+        "tiktok_search",
+        "tiktok_hashtag_search",
+        "tiktok_channel_videos",
+        "tiktok_download"
+      ]
+    },
+    {
+      "id": "instagram",
+      "platform": "Instagram",
+      "tools": [
+        "instagram_transcript",
+        "instagram_summarize",
+        "instagram_stats",
+        "instagram_comments",
+        "instagram_channel_stats",
+        "instagram_channel_posts",
+        "instagram_channel_reels",
+        "instagram_reels_search",
+        "instagram_download"
+      ]
+    },
+    {
+      "id": "facebook",
+      "platform": "Facebook",
+      "tools": [
+        "facebook_transcript",
+        "facebook_summarize",
+        "facebook_stats",
+        "facebook_comments",
+        "facebook_channel_stats"
+      ]
+    },
+    {
+      "id": "twitter",
+      "platform": "Twitter / X",
+      "tools": [
+        "twitter_profile",
+        "twitter_tweets",
+        "twitter_tweet",
+        "twitter_thread",
+        "twitter_article",
+        "twitter_transcript"
+      ]
+    },
+    {
+      "id": "linkedin",
+      "platform": "LinkedIn",
+      "tools": [
+        "linkedin_profile",
+        "linkedin_company",
+        "linkedin_company_posts",
+        "linkedin_post",
+        "linkedin_transcript"
+      ]
+    },
+    {
+      "id": "video",
+      "platform": "Direct video",
+      "tools": [
+        "video_transcript",
+        "video_summarize"
+      ]
+    },
+    {
+      "id": "download",
+      "platform": "Shared downloads",
+      "tools": [
+        "download_async",
+        "download_status"
+      ]
+    }
+  ]
+}

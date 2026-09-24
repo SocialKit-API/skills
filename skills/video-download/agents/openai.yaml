@@ -1,3 +1,3 @@
 interface:
   display_name: "Video Download"
-  short_description: "Download YouTube, TikTok, and Instagram videos to a hosted file link."
+  short_description: "Save public videos with bounded download jobs"

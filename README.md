@@ -159,4 +159,4 @@ Use `socialkit-api` as the shared routing and reference layer. The workflow skil
 
 ## Codex / OpenAI plugin package
 
-This repository includes a portable `plugin.json` and a Codex marketplace pointing to the same eight skills. See [package validation and optional OAuth MCP preview](docs/openai-plugin.md). The default package uses skills and your environment key; a combined skills/MCP archive is built only with an explicit deployed OAuth URL. Repository packaging is separate from marketplace submission.
+This repository includes a portable `plugin.json` and a Codex marketplace pointing to the same eight skills. See [package validation and optional OAuth MCP setup](docs/openai-plugin.md). The default package uses skills and your environment key. Codex and Claude Code can also [connect to MCP with browser login](https://docs.socialkit.dev/mcp#connect-with-oauth). A combined skills/MCP archive requires a deployed OAuth URL and the host's registered client configuration. Repository packaging is separate from marketplace submission.

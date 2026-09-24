@@ -1,0 +1,10 @@
+# Coding-agent integration release checks
+
+1. Regenerate the API route inventory from registered routes and review changes. Copy it into this repository's `contracts/api-operations.json` and the MCP repository. Copy the MCP tool inventory into this repository, web, and docs. Remove stale skill/tool references; do not infer supported parameters from route existence.
+2. Run `npm ci && npm test`. JavaScript/Python examples use synthetic fixtures and local HTTP servers; normal PR checks must not invoke paid models or providers. Run the existing workflow export/persistence checks when that workflow changes.
+3. Run `claude plugin validate .claude-plugin/plugin.json` and `claude plugin validate .claude-plugin/marketplace.json`. Keep plugin/marketplace versions equal. Install the checkout in an isolated `CLAUDE_CONFIG_DIR` and inspect the installed package before publishing.
+4. Check install commands, links, supported platforms, errors, pagination, credits, and example output in README, skills, docs, web, and MCP metadata. The transcript starter's credit limit is a modeled reservation, not an API billing ceiling.
+5. Record branch/commit, package/client versions, and fixture/real-call scope. Update the private `evals/agent-visibility` suite only for capability changes; preserve held-out cases. Separate mentions, selection, and executed success. An installed skill test does not measure organic discovery.
+6. Deploy candidate service branches to development using CD and verify the live tool inventory, free authentication, bounded data calls, and relevant UI/auth flows. Publish marketplace entries and announcements only through the separate distribution work; repository packaging alone does not imply official marketplace approval.
+
+Validation for this change: eight skills pass metadata/reference checks; Claude plugin 1.1.0 validates and installs from the local marketplace in a fresh isolated configuration. Paid agent-selection runs are separate and have not been claimed as passing.

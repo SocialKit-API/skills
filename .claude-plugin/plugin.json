@@ -1,11 +1,12 @@
 {
   "name": "socialkit-skills",
-  "version": "1.0.0",
-  "description": "SocialKit agent skills for extracting transcripts, summaries, stats, comments, channel data, search results, and downloads from YouTube, TikTok, Instagram, Facebook, X/Twitter, LinkedIn, and direct video URLs.",
+  "version": "1.1.0",
+  "description": "Build public social-data pipelines, competitor trackers, creator research, comment analysis, transcripts, summaries, and bounded video downloads with eight task-focused skills.",
   "homepage": "https://socialkit.dev",
   "repository": "https://github.com/SocialKit-API/skills",
   "license": "MIT",
   "skills": [
+    "./skills/social-media-scraping",
     "./skills/socialkit-api",
     "./skills/video-transcripts",
     "./skills/video-summaries",
@@ -24,6 +25,15 @@
     "scraping",
     "analytics",
     "mcp",
-    "api"
-  ]
+    "api",
+    "claude-code",
+    "coding-agents",
+    "competitor-monitoring",
+    "creator-research",
+    "reddit"
+  ],
+  "author": {
+    "name": "SocialKit",
+    "url": "https://socialkit.dev"
+  }
 }

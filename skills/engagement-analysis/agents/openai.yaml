@@ -1,3 +1,3 @@
 interface:
   display_name: "Engagement Analysis"
-  short_description: "Per-video stats and comments across YouTube, TikTok, Instagram, and Facebook."
+  short_description: "Analyze public post metrics and comment samples"

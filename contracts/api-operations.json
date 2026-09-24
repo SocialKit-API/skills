@@ -1,0 +1,445 @@
+{
+  "schemaVersion": 1,
+  "source": "TalkShopClub/socialkit-api-skyfall registered routes",
+  "operations": [
+    {
+      "path": "/credits",
+      "methods": [
+        "GET"
+      ]
+    },
+    {
+      "path": "/facebook/channel-stats",
+      "methods": [
+        "GET",
+        "POST"
+      ]
+    },
+    {
+      "path": "/facebook/comments",
+      "methods": [
+        "GET",
+        "POST"
+      ]
+    },
+    {
+      "path": "/facebook/stats",
+      "methods": [
+        "GET",
+        "POST"
+      ]
+    },
+    {
+      "path": "/facebook/summarize",
+      "methods": [
+        "GET",
+        "POST"
+      ]
+    },
+    {
+      "path": "/facebook/transcript",
+      "methods": [
+        "GET",
+        "POST"
+      ]
+    },
+    {
+      "path": "/instagram/channel-posts",
+      "methods": [
+        "GET",
+        "POST"
+      ]
+    },
+    {
+      "path": "/instagram/channel-reels",
+      "methods": [
+        "GET",
+        "POST"
+      ]
+    },
+    {
+      "path": "/instagram/channel-stats",
+      "methods": [
+        "GET",
+        "POST"
+      ]
+    },
+    {
+      "path": "/instagram/channel-stats/bulk",
+      "methods": [
+        "POST"
+      ]
+    },
+    {
+      "path": "/instagram/comments",
+      "methods": [
+        "GET",
+        "POST"
+      ]
+    },
+    {
+      "path": "/instagram/download",
+      "methods": [
+        "GET",
+        "POST"
+      ]
+    },
+    {
+      "path": "/instagram/reels-search",
+      "methods": [
+        "GET",
+        "POST"
+      ]
+    },
+    {
+      "path": "/instagram/stats",
+      "methods": [
+        "GET",
+        "POST"
+      ]
+    },
+    {
+      "path": "/instagram/stats/bulk",
+      "methods": [
+        "POST"
+      ]
+    },
+    {
+      "path": "/instagram/summarize",
+      "methods": [
+        "GET",
+        "POST"
+      ]
+    },
+    {
+      "path": "/instagram/summarize/bulk",
+      "methods": [
+        "POST"
+      ]
+    },
+    {
+      "path": "/instagram/transcript",
+      "methods": [
+        "GET",
+        "POST"
+      ]
+    },
+    {
+      "path": "/instagram/transcript/bulk",
+      "methods": [
+        "POST"
+      ]
+    },
+    {
+      "path": "/linkedin/company",
+      "methods": [
+        "GET",
+        "POST"
+      ]
+    },
+    {
+      "path": "/linkedin/company-posts",
+      "methods": [
+        "GET",
+        "POST"
+      ]
+    },
+    {
+      "path": "/linkedin/post",
+      "methods": [
+        "GET",
+        "POST"
+      ]
+    },
+    {
+      "path": "/linkedin/profile",
+      "methods": [
+        "GET",
+        "POST"
+      ]
+    },
+    {
+      "path": "/linkedin/transcript",
+      "methods": [
+        "GET",
+        "POST"
+      ]
+    },
+    {
+      "path": "/reddit/post",
+      "methods": [
+        "GET",
+        "POST"
+      ]
+    },
+    {
+      "path": "/reddit/subreddit/details",
+      "methods": [
+        "GET",
+        "POST"
+      ]
+    },
+    {
+      "path": "/status",
+      "methods": [
+        "GET"
+      ]
+    },
+    {
+      "path": "/test",
+      "methods": [
+        "GET",
+        "POST"
+      ]
+    },
+    {
+      "path": "/test/rate-limit",
+      "methods": [
+        "GET",
+        "POST"
+      ]
+    },
+    {
+      "path": "/tiktok/channel-stats",
+      "methods": [
+        "GET",
+        "POST"
+      ]
+    },
+    {
+      "path": "/tiktok/channel-stats/bulk",
+      "methods": [
+        "POST"
+      ]
+    },
+    {
+      "path": "/tiktok/channel-videos",
+      "methods": [
+        "GET",
+        "POST"
+      ]
+    },
+    {
+      "path": "/tiktok/comments",
+      "methods": [
+        "GET",
+        "POST"
+      ]
+    },
+    {
+      "path": "/tiktok/comments/bulk",
+      "methods": [
+        "POST"
+      ]
+    },
+    {
+      "path": "/tiktok/download",
+      "methods": [
+        "GET",
+        "POST"
+      ]
+    },
+    {
+      "path": "/tiktok/hashtag-search",
+      "methods": [
+        "GET",
+        "POST"
+      ]
+    },
+    {
+      "path": "/tiktok/search",
+      "methods": [
+        "GET",
+        "POST"
+      ]
+    },
+    {
+      "path": "/tiktok/stats",
+      "methods": [
+        "GET",
+        "POST"
+      ]
+    },
+    {
+      "path": "/tiktok/stats/bulk",
+      "methods": [
+        "POST"
+      ]
+    },
+    {
+      "path": "/tiktok/summarize",
+      "methods": [
+        "GET",
+        "POST"
+      ]
+    },
+    {
+      "path": "/tiktok/summarize/bulk",
+      "methods": [
+        "POST"
+      ]
+    },
+    {
+      "path": "/tiktok/transcript",
+      "methods": [
+        "GET",
+        "POST"
+      ]
+    },
+    {
+      "path": "/tiktok/transcript/bulk",
+      "methods": [
+        "POST"
+      ]
+    },
+    {
+      "path": "/twitter/article",
+      "methods": [
+        "GET",
+        "POST"
+      ]
+    },
+    {
+      "path": "/twitter/profile",
+      "methods": [
+        "GET",
+        "POST"
+      ]
+    },
+    {
+      "path": "/twitter/thread",
+      "methods": [
+        "GET",
+        "POST"
+      ]
+    },
+    {
+      "path": "/twitter/transcript",
+      "methods": [
+        "GET",
+        "POST"
+      ]
+    },
+    {
+      "path": "/twitter/tweet",
+      "methods": [
+        "GET",
+        "POST"
+      ]
+    },
+    {
+      "path": "/twitter/tweets",
+      "methods": [
+        "GET",
+        "POST"
+      ]
+    },
+    {
+      "path": "/v2/{platform}/download",
+      "methods": [
+        "GET",
+        "POST"
+      ]
+    },
+    {
+      "path": "/v2/downloads/{jobId}",
+      "methods": [
+        "GET"
+      ]
+    },
+    {
+      "path": "/video/summarize",
+      "methods": [
+        "GET",
+        "POST"
+      ]
+    },
+    {
+      "path": "/video/transcript",
+      "methods": [
+        "GET",
+        "POST"
+      ]
+    },
+    {
+      "path": "/youtube/channel-stats",
+      "methods": [
+        "GET",
+        "POST"
+      ]
+    },
+    {
+      "path": "/youtube/comments",
+      "methods": [
+        "GET",
+        "POST"
+      ]
+    },
+    {
+      "path": "/youtube/comments/bulk",
+      "methods": [
+        "POST"
+      ]
+    },
+    {
+      "path": "/youtube/download",
+      "methods": [
+        "GET",
+        "POST"
+      ]
+    },
+    {
+      "path": "/youtube/search",
+      "methods": [
+        "GET",
+        "POST"
+      ]
+    },
+    {
+      "path": "/youtube/stats",
+      "methods": [
+        "GET",
+        "POST"
+      ]
+    },
+    {
+      "path": "/youtube/stats/bulk",
+      "methods": [
+        "POST"
+      ]
+    },
+    {
+      "path": "/youtube/summarize",
+      "methods": [
+        "GET",
+        "POST"
+      ]
+    },
+    {
+      "path": "/youtube/summarize/bulk",
+      "methods": [
+        "POST"
+      ]
+    },
+    {
+      "path": "/youtube/transcript",
+      "methods": [
+        "GET",
+        "POST"
+      ]
+    },
+    {
+      "path": "/youtube/transcript/bulk",
+      "methods": [
+        "POST"
+      ]
+    },
+    {
+      "path": "/youtube/videos",
+      "methods": [
+        "GET",
+        "POST"
+      ]
+    }
+  ]
+}

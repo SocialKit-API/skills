@@ -1,6 +1,6 @@
 ---
 name: video-transcripts
-description: Extract transcripts from social videos through SocialKit across YouTube, TikTok, Instagram, Facebook, X/Twitter, LinkedIn, and direct video file URLs. Use when the user asks to transcribe, get captions or subtitles, pull the spoken text, or read what a video says, including one video or many at once. Returns full text plus timestamped segments.
+description: Extract transcripts from social videos through SocialKit across YouTube, TikTok, Instagram, Facebook, X/Twitter, LinkedIn, and direct video file URLs. Use when the user asks to transcribe, get captions or subtitles, pull the spoken text, or read what a video says, including one video or many at once. Returns full text plus timestamped segments. Not for posting, private accounts, or unrelated website scraping.
 ---
 
 # Video Transcripts
@@ -9,7 +9,7 @@ description: Extract transcripts from social videos through SocialKit across You
 
 Turn a video URL into text. Use `socialkit-api` for auth, base URL, and endpoint details. Prefer MCP tools when a client is configured.
 
-Each transcript response contains `transcript` (full plain text), `transcriptSegments` (per-segment `text`, `start`, `duration`, `timestamp`), `wordCount`, and `segments`.
+Transcript shapes vary. Read `transcriptSegments` for timing and `transcript` or `text` for full text where provided; never manufacture missing timing or speech.
 
 ## Endpoint by Platform
 
@@ -56,11 +56,13 @@ curl -s -X POST "https://api.socialkit.dev/youtube/transcript/bulk" \
 ## Common Pitfalls
 
 - Do not pass a channel or profile URL to a transcript endpoint. Transcripts need a single video URL.
-- A `404` usually means the video is private, removed, or has no captions available. Report that plainly, do not retry endlessly.
-- Some videos have no speech. An empty transcript is a valid result, not an error to work around.
+- Inspect `errorCode`/`code` and `retryable`, not only HTTP status. TikTok `no_transcript` means confirmed caption absence, not absence of speech; it has no speech-to-text fallback.
+- An empty or missing transcript is not a successful transcription. Report it separately from operational failures; never invent spoken content.
 - For direct URL transcripts the link must point at the video file, not a web page embedding it.
 
 ## Output Standards
 
 - Lead with the answer to the user's question, then offer the full transcript or key segments if useful.
 - Keep timestamps when the user wants to locate a moment. Drop them when they want clean prose.
+
+Use only public supported content. Do not route posting, private-account access, login bypass, or unrelated website scraping here. See `socialkit-api` for authentication, endpoint-specific pagination, failure handling, and credits. Preserve unknown metrics and scope conclusions to the collected sample.

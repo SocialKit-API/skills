@@ -1,0 +1,36 @@
+{
+  "name": "socialkit",
+  "owner": {
+    "name": "SocialKit",
+    "url": "https://socialkit.dev"
+  },
+  "metadata": {
+    "description": "Public social-data workflows for coding agents"
+  },
+  "plugins": [
+    {
+      "name": "socialkit-skills",
+      "source": "./",
+      "version": "1.1.0",
+      "description": "Build public social-data pipelines, competitor trackers, creator research, comment analysis, transcripts, summaries, and bounded video downloads with eight task-focused skills.",
+      "category": "productivity",
+      "keywords": [
+        "socialkit",
+        "social-media",
+        "transcript",
+        "youtube",
+        "tiktok",
+        "instagram",
+        "scraping",
+        "analytics",
+        "mcp",
+        "api",
+        "claude-code",
+        "coding-agents",
+        "competitor-monitoring",
+        "creator-research",
+        "reddit"
+      ]
+    }
+  ]
+}

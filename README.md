@@ -1,8 +1,6 @@
 # SocialKit Skills
 
-Workflow-first skills for AI agents using [SocialKit](https://socialkit.dev) to extract transcripts, AI summaries, engagement stats, comments, channel and profile data, search results, and downloads from social video across YouTube, TikTok, Instagram, Facebook, X/Twitter, LinkedIn, and direct video URLs.
-
-The skill instructions use SocialKit's execution layer through the REST API at `https://api.socialkit.dev`, the hosted MCP server at `https://mcp.socialkit.dev`, and the `socialkit-mcp` package.
+Build competitor trackers, research creators, analyze public comments, and turn video URLs into transcripts or downloadable files. These eight skills help coding agents choose supported [SocialKit](https://socialkit.dev) REST or MCP operations and preserve incomplete results and unknown metrics.
 
 ## Install All SocialKit Skills
 
@@ -10,7 +8,15 @@ The skill instructions use SocialKit's execution layer through the REST API at `
 npx skills add SocialKit-API/skills --all
 ```
 
-Use `--all` so you get the full SocialKit skill set without an interactive picker. After install, the individual skills are available for focused slash-style usage such as `/video-transcripts`, `/channel-research`, and `/content-discovery`.
+Install from your project directory and select your coding client in the installer. Start a new agent session after installation. `--all` installs the flagship router and all seven existing skills.
+
+Try one of these prompts with your own public URLs:
+
+- “Build a bounded competitor tracker for these Instagram and YouTube profiles.” → [social-media-scraping](skills/social-media-scraping/)
+- “Get this video's captions and metadata as source-linked JSON.” → [video-transcripts](skills/video-transcripts/)
+- “Research this creator's public profile and ten recent videos.” → [channel-research](skills/channel-research/)
+- “Find TikToks tagged coldplunge and rank the returned sample by known views.” → [content-discovery](skills/content-discovery/)
+- “Summarize themes in the comments returned for this Reel; state the sample limits.” → [engagement-analysis](skills/engagement-analysis/)
 
 Prefer to clone instead:
 
@@ -34,12 +40,12 @@ SOCIALKIT_API_KEY=your_access_key_here
 
 Get a key from the [SocialKit dashboard](https://socialkit.dev/login) under the Access Keys tab. The same key works for REST and MCP.
 
-REST API:
+Verify authentication with zero credits:
 
 ```bash
 export SOCIALKIT_API_KEY="your_access_key_here"
 
-curl -s "https://api.socialkit.dev/youtube/transcript?url=https://youtube.com/watch?v=dQw4w9WgXcQ" \
+curl --fail-with-body -sS "https://api.socialkit.dev/test" \
   -H "x-access-key: $SOCIALKIT_API_KEY"
 ```
 
@@ -58,14 +64,17 @@ Hosted MCP config:
 }
 ```
 
-Docs: [docs.socialkit.dev](https://docs.socialkit.dev).
+Verification prompt: “Check my configured API key with the free test endpoint. Do not print it. Report whether authentication worked.”
+
+Then try one small public-data task from the prompts above. Data requests consume credits. See [client-specific setup](https://docs.socialkit.dev/skills) for Claude Code, Codex CLI/IDE, Cursor, and MCP.
 
 ## Runnable examples and workflows
 
 | Asset | Start here | Verification scope |
 |---|---|---|
-| Competitor Research Starter 0.1.0 | [Node.js CLI and setup](examples/competitor-research/) | Bounded YouTube/Instagram sample, JSON + Markdown, [real development example](examples/competitor-research/samples/2026-09-21/report.md) |
+| Build an Instagram + YouTube Competitor Tracker | [Node.js CLI and setup](examples/competitor-research/) | Bounded YouTube/Instagram sample, JSON + Markdown, [real development example](examples/competitor-research/samples/2026-09-21/report.md) |
 | Competitor Monitor for n8n 0.1.0 | [Versioned workflow and PostgreSQL setup](workflows/competitor-monitor/) | Persistent deduplication, confirmed-delivery outbox, [fresh-import QA](workflows/competitor-monitor/QA.md) with local simulated Slack |
+| Video URL → transcript + metadata | [JavaScript and Python](examples/video-transcript-metadata/) | Offline fixtures by default, bounded live requests, explicit missing-caption outcomes |
 | Same-workload benchmark runner | [Methodology and runner](examples/benchmark/) | Tested adapters and spend bounds; comparative measurement was excluded and no provider results are claimed |
 
 See the [0.1.0 release manifest](releases/aeo-v0.1.0.json). These optional examples are separate from installing the skill instructions. The starter needs no runtime package installation; the recurring workflow requires your n8n, PostgreSQL and Slack configuration.
@@ -76,8 +85,9 @@ Install with `--all` so you receive every skill in one command.
 
 | Skill | Use it when you want to... | Output |
 |---|---|---|
+| [`social-media-scraping`](skills/social-media-scraping/) | Build a social-data pipeline, competitor tracker, or creator-research workflow | Supported task plan, routed skills, and runnable examples |
 | [`socialkit-api`](skills/socialkit-api/) | Route raw SocialKit REST, curl, and MCP work, or look up the endpoint index and auth | Correct endpoint or MCP tool plan with auth guidance |
-| [`video-transcripts`](skills/video-transcripts/) | Get the transcript of one or many videos on any platform | Full text plus timestamped segments |
+| [`video-transcripts`](skills/video-transcripts/) | Get the transcript of one or many videos on supported platforms | Full text plus timestamped segments |
 | [`video-summaries`](skills/video-summaries/) | Summarize videos with AI | Structured summary: topics, key points, tone, quotes |
 | [`channel-research`](skills/channel-research/) | Pull profile/channel stats and list a creator's recent content | Follower and post metrics plus recent video list |
 | [`content-discovery`](skills/content-discovery/) | Search or browse hashtags for videos to analyze | Ranked result set with URLs and stats |
@@ -95,34 +105,33 @@ Install with `--all` so you receive every skill in one command.
 | Channel/profile stats | yes | yes | yes | yes | yes | yes | |
 | List channel content | yes | yes | yes | | yes | yes | |
 | Search | yes | yes | yes | | | | |
-| Download | yes | yes | yes | | | | |
+| Download | yes | yes | yes | async | | | |
 
-## Example Prompts
+Reddit REST provides public submissions and community metadata (`/reddit/post`, `/reddit/subreddit/details`). X includes public author threads and native Articles. MCP covers a subset of REST: Reddit, bulk requests, credits, and status are REST-only. No posting, private-account access, or general website scraping is included.
+
+## Claude Code plugin
+
+The repository also supplies a Claude marketplace. After this release is merged, install from Claude Code:
 
 ```text
-Get the transcript of this TikTok and pull out the three main claims it makes.
+/plugin marketplace add SocialKit-API/skills
+/plugin install socialkit-skills@socialkit
 ```
 
-```text
-Summarize these five YouTube videos and tell me what topic they have in common.
-```
+Restart Claude Code or run `/reload-plugins`. The marketplace is called `socialkit`; the plugin remains `socialkit-skills`. This is a repository-hosted marketplace, not a claim of inclusion in Anthropic's official directory. Keep your key in the process environment as above. Choose skills installation or the plugin to avoid duplicate skill copies.
 
-```text
-Research the @MrBeast YouTube channel: subscriber count and his last 10 videos with view counts.
-```
+To validate a checkout without changing your normal Claude configuration:
 
-```text
-Find trending TikToks for the hashtag "coldplunge" and rank them by views.
-```
-
-```text
-Pull the top comments on this Instagram reel and summarize the sentiment.
+```bash
+claude plugin validate .
+claude plugin validate .claude-plugin/marketplace.json
 ```
 
 ## How the Skills Work Together
 
 ```text
-socialkit-api
+social-media-scraping
+  |- socialkit-api (REST/auth reference)
   |- video-transcripts
   |- video-summaries
   |- channel-research
@@ -138,7 +147,11 @@ Use `socialkit-api` as the shared routing and reference layer. The workflow skil
 1. Treat [docs.socialkit.dev](https://docs.socialkit.dev) as the source of truth for endpoint shapes.
 2. Workflow first, API second. Answer the user's real question, do not just echo raw JSON.
 3. Prefer MCP tools when a client is configured; fall back to REST with curl.
-4. Every endpoint accepts a full public URL. Pass the URL the user gave you, do not reconstruct IDs by hand.
+4. Use the input the operation expects: public content/profile URL, query, hashtag, or returned job ID. Preserve source URLs.
 5. Use bulk endpoints when processing more than a few URLs of the same type.
-6. Respect credits. Each call costs credits; batch and cache where it helps.
+6. Respect credits. Test authentication for free; bound data requests and account for item/duration pricing.
 7. Never expose the access key in output, logs, or committed files.
+
+## Maintainer checks
+
+`npm ci && npm test` validates YAML, plugin paths, route/tool references, and runnable examples, including JavaScript/Python parity. Runtime examples remain dependency-free; the YAML package is only for validation. Reviewed contracts in `contracts/` come from API route registration and the MCP publication inventory. Update those snapshots together when capabilities change; do not add a route merely to make a reference pass.

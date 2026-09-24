@@ -1,0 +1,7 @@
+{
+  "url": "https://www.youtube.com/watch?v=DEMO1234567",
+  "responses": {
+    "stats": {"status":200,"credits":"1","body":{"success":true,"data":{"title":"Synthetic example","duration":"1:05","views":null,"likes":0}}},
+    "transcript": {"status":200,"credits":"1","body":{"success":true,"data":{"transcript":"A synthetic transcript for offline testing.","transcriptSegments":[{"text":"A synthetic transcript for offline testing.","start":0,"duration":3}]}}}
+  }
+}

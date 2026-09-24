@@ -1,4 +1,4 @@
-# Competitor Research Starter v0.1.0
+# Build an Instagram + YouTube Competitor Tracker
 
 Collect a small public competitor sample from YouTube channels and Instagram Reels, then write a source-linked Markdown report and machine-readable JSON. No SDK install, AI key, transcript calls, telemetry, or per-video enrichment is required.
 
@@ -57,3 +57,15 @@ node --test *.test.mjs
 ```
 
 These tests use synthetic HTTP responses and do not consume credits. Live authentication, public data and independent agent usability tests are separate verification steps.
+
+## Build with Claude Code or Codex
+
+Input: one to three public YouTube channel or Instagram profile URLs in `profiles.example.json`. The CLI calls `/youtube/videos` or `/instagram/channel-reels` once per profile (plus a bounded retry when allowed), then writes `report.json` and `report.md`. The credit model and sample limits above apply.
+
+After cloning the repository and installing the skills, paste either prompt:
+
+**Claude Code:** “Run the competitor-research fixture tests, then prepare profiles.example.json for these public competitors. Explain the request and modeled credit caps before using my environment key. Preserve null metrics and partial collection in the report.”
+
+**Codex:** “Extend the competitor-research starter to show a weekly snapshot comparison from two saved report.json files. Keep missing metrics unknown, compare each platform separately, and add fixture tests. Do not add live API calls beyond the configured collection budget.”
+
+Both prompts use the existing runnable CLI. They do not require a separate agent-generated implementation.

@@ -26,7 +26,9 @@ jobs:
         with:
           node-version: ${{ matrix.node }}
       - name: Verify dependency-free starters and benchmark adapters
-        run: node --test examples/competitor-research/*.test.mjs examples/benchmark/benchmark.test.mjs
+        run: |
+          npm ci --ignore-scripts --no-audit --no-fund
+          npm test
       - name: Verify generated workflow matches reviewed export
         run: |
           node workflows/competitor-monitor/build.mjs

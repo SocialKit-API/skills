@@ -1,0 +1,4 @@
+interface:
+  display_name: "Social Media Scraping"
+  short_description: "Build public social-data research and pipelines"
+  default_prompt: "Use $social-media-scraping to build a bounded competitor tracker from these public profiles."

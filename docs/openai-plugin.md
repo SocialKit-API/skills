@@ -15,15 +15,17 @@ Run installation checks in a fresh, isolated Codex configuration. These commands
 
 ## Optional OAuth MCP package
 
-The default package contains skills only, so it does not advertise an unreleased production OAuth endpoint. To prepare a combined skills/MCP preview after the development MCP and web branches are deployed:
+The default package contains skills only. To connect Codex or Claude Code to production MCP through browser login, follow the [registered-client setup](https://docs.socialkit.dev/mcp#connect-with-oauth). That setup selects a project without copying its API key. Skills that call REST directly still require `SOCIALKIT_API_KEY`.
+
+For an integration that supplies its own registered OAuth client configuration, prepare a combined skills/MCP package:
 
 ```bash
-npm run package:plugin -- --mcp-url https://socialkit-mcp.development.corp.skyfall.ai/oauth/mcp
+npm run package:plugin -- --mcp-url https://mcp.socialkit.dev/oauth/mcp
 ```
 
 This produces `dist/socialkit-plugin/` with `plugin.json`, all skills and supporting examples, and a portable `mcp.json` using Streamable HTTP. The command refuses to overwrite an existing package. Archive or remove that generated directory before rebuilding. No credentials are bundled. Use a separately registered OAuth client with an exact callback URI and S256 PKCE; the MCP service redirects to SocialKit login, asks for a project, and records explicit consent. Reviewers must have an approved project role and available credits for data calls.
 
-Production publication still requires the external distribution work: register the actual client/callback supplied by the submission interface, enable and verify the production OAuth endpoint in a separately approved release, build with that production URL, complete review metadata, and submit. Do not submit a package pointing at development. The configured integration supports explicit public PKCE or confidential clients; it does not advertise dynamic registration or CIMD. Confirm the chosen submission path accepts that registration mode before publishing.
+The generated `mcp.json` contains the transport and URL only; it does not configure a client's OAuth ID or callback. For the native CLIs, use the documented server configuration above. Marketplace publication still requires registering the actual client/callback supplied by the submission interface, completing review metadata, and submitting. Do not submit a package pointing at development. The configured integration supports explicit public PKCE or confidential clients; it does not advertise dynamic registration or CIMD. Confirm the chosen submission path accepts that registration mode before publishing.
 
 ## Acceptance evidence
 

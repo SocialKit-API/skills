@@ -8,7 +8,7 @@ Build competitor trackers, research creators, analyze public comments, and turn 
 npx skills add SocialKit-API/skills --all
 ```
 
-Install from your project directory and select your coding client in the installer. Start a new agent session after installation. `--all` installs the flagship router and all seven existing skills.
+Run this in your project directory. `--all` installs all eight skills for all supported agents without a picker. To target one client, use `npx skills add SocialKit-API/skills --skill '*' --agent codex -y` (or `claude-code` / `cursor`). Start a new agent session after installation.
 
 Try one of these prompts with your own public URLs:
 
@@ -155,3 +155,8 @@ Use `socialkit-api` as the shared routing and reference layer. The workflow skil
 ## Maintainer checks
 
 `npm ci && npm test` validates YAML, plugin paths, route/tool references, and runnable examples, including JavaScript/Python parity. Runtime examples remain dependency-free; the YAML package is only for validation. Reviewed contracts in `contracts/` come from API route registration and the MCP publication inventory. Update those snapshots together when capabilities change; do not add a route merely to make a reference pass.
+
+
+## Codex / OpenAI plugin package
+
+This repository includes a portable `plugin.json` and a Codex marketplace pointing to the same eight skills. See [package validation and optional OAuth MCP preview](docs/openai-plugin.md). The default package uses skills and your environment key; a combined skills/MCP archive is built only with an explicit deployed OAuth URL. Repository packaging is separate from marketplace submission.

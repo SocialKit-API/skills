@@ -1,0 +1,26 @@
+{
+  "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
+  "name": "socialkit-skills",
+  "version": "1.1.0",
+  "description": "Build public social-data pipelines, competitor trackers, creator research, comment analysis, transcripts, summaries, and bounded video downloads.",
+  "author": { "name": "SocialKit", "url": "https://socialkit.dev" },
+  "homepage": "https://socialkit.dev/ai-agents",
+  "repository": "https://github.com/SocialKit-API/skills",
+  "license": "MIT",
+  "keywords": ["codex", "claude-code", "cursor", "social-media-api", "competitor-monitoring", "creator-research", "transcripts"],
+  "extensions": {
+    "com.openai": {
+      "interface": {
+        "displayName": "SocialKit",
+        "shortDescription": "Build applications with public social data",
+        "longDescription": "Use eight task-focused skills to collect public social metadata, comments and transcripts, research creators, and build bounded data pipelines. Requires a SocialKit project key for REST calls; data requests use project credits.",
+        "developerName": "SocialKit",
+        "category": "Productivity",
+        "websiteURL": "https://socialkit.dev",
+        "privacyPolicyURL": "https://socialkit.dev/privacy",
+        "termsOfServiceURL": "https://socialkit.dev/terms",
+        "defaultPrompt": ["Build an Instagram and YouTube competitor tracker.", "Turn a public video URL into a transcript and metadata report."]
+      }
+    }
+  }
+}

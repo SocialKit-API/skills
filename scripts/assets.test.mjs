@@ -58,3 +58,16 @@ test('Claude plugin packages every skill once and marketplace resolves the packa
   assert.equal(marketplace.plugins[0].version, plugin.version);
   for (const path of plugin.skills) await access(resolve(root, path, 'SKILL.md'));
 });
+
+
+test('portable and Claude packages identify the same release and discover the same skills', async () => {
+  const portable = await json('plugin.json');
+  const claude = await json('.claude-plugin/plugin.json');
+  assert.equal(portable.name, claude.name);
+  assert.equal(portable.version, claude.version);
+  const marketplace = await json('.agents/plugins/marketplace.json');
+  assert.equal(marketplace.plugins[0].name, portable.name);
+  assert.equal(marketplace.plugins[0].source.path, './');
+  assert.equal(portable.$schema, 'https://agent-plugins.org/schemas/1.0.0/plugin.schema.json');
+  assert.ok(portable.extensions['com.openai'].interface.shortDescription.length <= 80);
+});
